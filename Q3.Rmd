@@ -1,0 +1,29 @@
+---
+title: "Question no three"
+author: "Wang YiMing 200548371"
+date: "1/22/2022"
+output: word_document
+---
+ 
+## Introduction
+
+This study is conducted to examine either no. of flights have been reduced by time and location or not. So, a time series plot would be better choice here. Thus, time series data has been obtained for different regions of world. 
+
+```{r plot}
+library(dplyr)
+delay=read.table(file.choose(),sep = ",",header = T)
+delay.df=as.data.frame(delay)
+table=table(delay$Distance,delay$Year)
+labels=distinct(delay,Distance)
+labbs=labels[1:100,]
+plot(table[,1],type="l",xlab=labbs,ylab="No. of people flying",main="Time series plot of no. of flights in different regions of world")
+ lines(table[,2],col=c("yellow"))
+legend(x = "topleft", box.col = "red",
+      bg ="pink", box.lwd = 2 , title="Years", 
+            legend=c("Year 2007", "Year 2008"), 
+             fill = c("black","yellow"))
+```
+
+## Time series Plots
+This indicated that by time no. of persons flying in regions of world changed. As, yellow lines in above graph are larger than black lines which is for previous year. So, we can say that no. of people flying by these delays is not decreased by time. 
+

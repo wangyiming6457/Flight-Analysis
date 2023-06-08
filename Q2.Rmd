@@ -1,0 +1,50 @@
+---
+title: "Question no 2"
+author: "Wang YiMing 200548371"
+date: "1/22/2022"
+output: word_document
+---
+ 
+## Introduction 
+
+Delays in assistance are turning out to be progressively normal; yet their impacts on help assessments are moderately obscure. The creator presents a model of the stand by experience, which surveys the impacts of defer span, attribution for the postponement, and degree to which time is filled, on emotional and evaluative responses to the deferral. An experimental trial of the model with postponed carrier travelers uncovers that deferrals truly do influence administration assessments; notwithstanding, this effect is interceded by regrettable emotional responses to the postponement. How much the specialist co-op is seen to have control and how much the postponed client's time is filled likewise by implication influence administration assessments, intervened by the clients' full of feeling responses of vulnerability and outrage. Thus, previous  researches explored a relationship among older planes and service delays. So, this study is also conducted to prove that whether the relationship is significant or not. In simple terms it will predict either older planes have larger delays as compared to newer planes or not.  
+
+ 
+# Null and Alternative hypothesis:
+Ho: The average delays from older planes is less than or equal to that of new planes.
+Ha: The average delays from older planes is more than that of new planes.
+
+# Level of Significance:
+Alpha=0.05
+ 
+# Test Statistics:
+t test for differences among two samples
+
+# Critical Region:
+We would reject null hypothesis if p value is less than level of significance. 
+
+# Calculations:
+
+```{r planes}
+# Reading data in R
+delay=read.table(file.choose(),sep = ",",header = T)
+# Creating data frame
+delay.df=as.data.frame(delay)
+# Determining total number of delays by adding the delays either from weather, security, late air craft or any other reason
+no.of.delay=rowSums(data[,8:11],na.rm = T)
+# Adding total no. of delays in data set
+new.data=cbind(delay.df,no.of.delay) 
+# No. of delays in previous year
+older=new.data[592929:1002463,]
+# No. of delays in newer year
+newer=new.data[1:592928,]
+# Reading first row of data
+new.data[1,] 
+# T test for comparison of no. of delays for two years
+t.test(older$no.of.delay,newer$no.of.delay,alternative = "greater")
+
+```
+  
+# Conclusion:
+For examining reason behind no. of delays we have to observe either delays are because of older planes or not. So, average number of delays for two periods would be tested using t test. P value for test is very small which indicates enough evidence for possible rejection of null hypothesis concluding the no. of delays for older planes would be more than those of newer planes. So, nostalgic planes are more harmful than new ones in terms of delays. 
+ 

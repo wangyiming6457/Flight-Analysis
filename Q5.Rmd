@@ -1,0 +1,24 @@
+---
+title: "Question no five"
+author: "Wang Yi Ming 200548371"
+date: "1/22/2022"
+output: word_document
+---
+ 
+## Introduction
+
+One of the basic inquiries facing the aircraft business in the 21st century is the manner by which to deal with a developing issue of air terminal and air gridlock. Somewhere in the range of 2000 and 2007 20% of all U.S. business flights were postponed (showing up 15+ minutes late). The Federal Aviation organization (FAA) appraises that business flight defers cost carriers in overabundance of $3 billion dollars each year (www.faa.gov), a sum that surpasses the $2.4 billion of direct monetary help to the carrier business given by the central government under the 2003 Emergency Wartime Supplemental Appropriations Act (GAO, 2004). Air terminal blockage in what's to come is liable to deteriorate because of an increment popular because of the extension of minimal expense transporters, development of provincial jets,1 and more business aeronautics flights, while the inventory of air terminal runway limit will probably stay consistent. Considering that air traffic delays are probably going to endure later on, we look for to dive deeper into the reasons for flight delays. 
+A new observational review by Mayer and Sinai (2003a) observes that air gridlock because of carrier hubbing and over-booking of trips at air terminal offices are the essential drivers of flight delays. Mayer and Sinai's (2003a) examination, nonetheless, depends on a modern flight defer measure: travel time in abundance of the course's month to month least. While transporters might make such defer estimations, we contend that travelers don't. Subsequently this paper further researches flight delays from both the aircraft and traveler points of view. In addition this paper gives a strength check and investigate of Mayer and Sinai's (2003a) flight defer discoveries when more conventional proportions of flight delays are utilized.
+
+```{r reasons}
+delay=read.table(file.choose(),sep = ",",header = T)
+delay.df=as.data.frame(delay)
+model=lm(DepDel0y~Distance+WeatherDelay+x0SDelay+SecurityDelay+LateAircraftDelay,data = delay)
+summary(model)
+```
+
+## Regression Analysis
+
+The regression model indicates distance and aircraft delay are significant reason behind no. of delays. The R square of model is small which indicates that smaller variations in delays are explained by these variables or in other words delay is dependent upon some other variables as well. 
+Summary and Conclusion:
+The report is conducted to examine the reason behind number of delays. So, data is obtained from secondary source for large number of respondents thus to reduce the effect of bias produced by small samples. The t test for average no. of delays produced by older planes indicates more delays are caused by nostalgic machinery. Further, no. of people travelling by planes after delays is not reduced by time. Also, no. of delays is best predicted by distance traveled, NOS delay and Late air craft delay. 

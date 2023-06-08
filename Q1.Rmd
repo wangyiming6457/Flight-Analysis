@@ -1,0 +1,55 @@
+---
+title: "Question no 1"
+author: "Wang Yi Ming 200548371"
+date: "1/22/2022"
+output: word_document
+---
+
+## Introduction:
+
+Interruptions are inescapable in complex modern settings like air transportation 
+frameworks, supply chains, fabricating processes, and so on Particularly in the 
+US, declining on-time appearance execution of carriers has been a developing issue 
+as of late. As indicated by the US Department of Transportation (DOT), a flight is 
+considered as postponed assuming it shows up at the objective door 15 minutes or 
+more after its planned appearance time. The insights show that there were 1,804 028 
+appearance delays out of an aggregate of 7,455,458 business flight tasks in the US 
+in 2007. Besides, in 2007, by and large on-time execution of carriers was at its 
+most noticeably terrible level starting around 1995 when the DOT initially began 
+to gather nitty gritty on-time execution data. From a frameworks approach 
+perspective, delays in the US air transportation framework can be considered as 
+the normal indications of helpless client assistance, shortcoming, and insufficient 
+timetable/asset arranging. In spite of the fact that carriers for the most part 
+contend in light of their tolls, it is notable that trip on-time execution is a 
+vital sign of aircraft administration quality, which drives consumer loyalty and 
+devotion. Thus, a project is required to accomplish that would provide an estimate 
+of minimum delayed time of day, day of week and month of year for minimum no. of 
+delays so, data is gathered for no. of delayed flights, day of week, month of year,
+time of day and causes of delays. 
+So, the data is analyzed using R software by applying filter option. We would filter data on the basis of months and than sorted in increasing order. Thus, the month having minimum no. of delays is examined. 
+
+```{r delays}
+# Loading library for filtering
+library(dplyr)
+# Reading data in R
+delay=read.table(file.choose(),sep = ",",header = T)
+delay[1,]
+# Creating data frame
+delay.df=as.data.frame(delay)
+# Filtering data by month with minimum delays
+delays=filter(delay.df, delay.df$Month == min(delay.df$Month))
+# Reading first ten months having minimum delays
+delays$Month[1:10]
+# Reading first ten days of month having minimum delays
+delays$DayofMonth[1:10]
+# Reading first ten days of week having minimum delays
+delays$DayOfWeek[1:10]
+
+```
+
+## Conlusion
+
+The study is performed to determine the time of day; day of week and month 
+of year for minimum no. of delays. Thus filter option is used for filtering 
+specific condition and than arranging in increasing order produced day and month 
+having minimum delays.  

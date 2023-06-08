@@ -1,0 +1,23 @@
+---
+title: "Question no four"
+author: "Wang Yi Ming 200548371"
+date: "1/22/2022"
+output: word_document
+---
+ 
+## Introduction
+
+This study is conducted to examine the reason behind delays in no. of fights so as to reduce the reason to minimize the delays. Thus, one of the reason may appeared is the delay in flights arriving at airport which induces delays in other flights as well. For example if any flight arrived late than this may lead another flight for routing on that region to be late because of control room communication. So, the association is tested using scatter plot that either delayed flights are associated for different airports or not. 
+
+
+```{r airport} 
+delay=read.table(file.choose(),sep = ",",header = T)
+delay.df=as.data.frame(delay)
+plot(delay$X0SDelay,delay$LateAircraftDelay,xlab="Departure delay minutes",
+ylab="Delay in Aircraft",main="Assocation between delay in Aircraft and 
+delayed departure",pch=20)
+```
+
+## Association Plots
+The scatter plot indicated that values follow a pattern and they are closely related with each other which predict high relationship among them. The scatter plot predicts negative relationship among them as increasing delay in departure time of one airport decreases delay in aircrafts at another airport so, we can’t say that delays in airports are associated or in other words by controlling no. of delays of one airport might not affect the delays of other airport as well. 
+ 
